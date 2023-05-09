@@ -9,7 +9,7 @@ import argparse
 parser = argparse.ArgumentParser(description='Process some images.')
 
 # Add a --source flag with two options: 0 or a path to an image
-parser.add_argument('--source', type=str, choices=['0', 'path/to/image.jpg'], default='0',
+parser.add_argument('--source', type=str, default='0',
                     help='the source of the image to process')
 
 # Parse the arguments
