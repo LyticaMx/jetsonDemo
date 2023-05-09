@@ -17,10 +17,10 @@ def filter_text(region, ocr_result, region_threshold):
     return plate
 
 # Model
-model = torch.hub.load('.', 'custom', path='runs/train/exp12/weights/best.pt', source='local')
+model = torch.hub.load('.', 'custom', path='best.pt', source='local')
 
 # Image
-img_path = "/home/jc/Documents/Octopy/licensePlate/archive/images/1006.jpg"
+img_path = "1.jpg"
 cv_img = cv2.imread(img_path)
 height, width, _ = cv_img.shape
 new_width = int(width * 0.5)
