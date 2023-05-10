@@ -60,7 +60,7 @@ if args.source != '0':
                     lp_text+=" " + result[1]
                     # Draw bounding box and text on image
                 cv2.rectangle(cv_img, (x1, y1), (x2, y2), (0, 255, 0), 2)
-                cv2.putText(cv_img, ' '.join(lp_text), (x1-40, y1-10), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 255, 0), 2)
+                cv2.putText(cv_img, ' '.join(lp_text), (x1-40, y1-10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 0, 255), 3)
         # Display annotated image
         # Write the processed image to file
         cv2.imwrite(f"./files/res/{f}.jpg", cv_img)     
