@@ -31,7 +31,7 @@ def filter_text(region, ocr_result, region_threshold):
 # Model
 model = torch.hub.load('.', 'custom', path='best.pt', source='local')
 # OCR
-reader = easyocr.Reader(['en'], model_storage_directory="english_g2.pth")  # set OCR language
+reader = easyocr.Reader(['en'], model_storage_directory=".", download_enabled=False)  # set OCR language
 
 if args.source != '0':
 
