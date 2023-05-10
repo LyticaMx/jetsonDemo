@@ -31,7 +31,7 @@ def filter_text(region, ocr_result, region_threshold):
 # Model
 model = torch.hub.load('.', 'custom', path='best.pt', source='local')
 # OCR
-reader = easyocr.Reader(['en'])  # set OCR language
+reader = easyocr.Reader(['en'], model_storage_directory="english_g2.pth")  # set OCR language
 
 if args.source != '0':
 
@@ -81,8 +81,8 @@ else:
 
         # Resize the image
         height, width, _ = cv_img.shape
-        new_width = int(width * 0.7)
-        new_height = int(height * 0.7)
+        new_width = int(width * 0.9)
+        new_height = int(height * 0.9)
         cv_img = cv2.resize(cv_img, (new_width, new_height), interpolation=cv2.INTER_AREA)
 
         # Inference
@@ -110,6 +110,6 @@ else:
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
 
-# Release the webcam and destroy windows
-cap.release()
+        # Release the webcam and destroy windows
+        cap.release()
 cv2.destroyAllWindows()
