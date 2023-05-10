@@ -39,7 +39,11 @@ if args.source != '0':
     img_path = args.source
     files = os.listdir(img_path)
     for f in files:
-        cv_img = cv2.imread(f"files/{f}")
+        name, ext = os.path.splitext(f)
+        if ext.lower() not in ('.jpg', '.jpeg'):
+            continue
+
+        cv_img = cv2.imread(os.path.join(img_path, f))
         # Inference
         results = model(cv_img)
 
