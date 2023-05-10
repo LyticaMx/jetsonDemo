@@ -39,7 +39,7 @@ if args.source != '0':
     img_path = args.source
     files = os.listdir(img_path)
     for f in files:
-        cv_img = cv2.imread(f)
+        cv_img = cv2.imread("files/{f}")
         # Inference
         results = model(cv_img)
 
