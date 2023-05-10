@@ -19,7 +19,6 @@ def filter_text(region, ocr_result, region_threshold):
     rectangle_size = region.shape[0]*region.shape[1]
     
     plate = [] 
-    print(ocr_result)
     for result in ocr_result:
         length = np.sum(np.subtract(result[0][1], result[0][0]))
         height = np.sum(np.subtract(result[0][2], result[0][1]))
@@ -79,12 +78,6 @@ else:
         if not ret:
             break
 
-        # Resize the image
-        height, width, _ = cv_img.shape
-        new_width = int(width * 0.9)
-        new_height = int(height * 0.9)
-        cv_img = cv2.resize(cv_img, (new_width, new_height), interpolation=cv2.INTER_AREA)
-
         # Inference
         results = model(cv_img)
 
@@ -103,7 +96,6 @@ else:
                 # Draw bounding box and text on image
                 cv2.rectangle(cv_img, (x1, y1), (x2, y2), (0, 255, 0), 2)
                 cv2.putText(cv_img, ' '.join(lp_text), (x1-20, y1-10), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 255, 0), 2)
-                print(lp_text)
 
         # Display annotated image
         cv2.imshow("Annotated image", cv_img)
@@ -111,5 +103,5 @@ else:
             break
 
         # Release the webcam and destroy windows
-        cap.release()
+    cap.release()
 cv2.destroyAllWindows()
