@@ -59,7 +59,7 @@ if args.source != '0':
                 cv2.putText(cv_img, ' '.join(lp_text), (x1-40, y1-10), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 255, 0), 2)
         # Display annotated image
         # Write the processed image to file
-        cv2.imwrite("/files/{f}.jpg", cv_img)     
+        cv2.imwrite("./files/{f}.jpg", cv_img)     
 
 else:
     # Initialize the webcam
