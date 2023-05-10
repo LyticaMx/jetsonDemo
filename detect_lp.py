@@ -51,7 +51,7 @@ if args.source != '0':
         lp_text = ""
         for crop in crops:
             x1,y1,x2,y2 = crop["box"]
-            x1,y1,x2,y2 = int(x1),int(y1)+20,int(x2),int(y2)
+            x1,y1,x2,y2 = int(x1),int(y1)+3,int(x2),int(y2)
             if crop["conf"]>.5:
                 license_plate = cv_img[y1:y2,x1:x2]
                 
